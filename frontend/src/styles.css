@@ -127,3 +127,52 @@ body {
 .ql-font-trebuchet-ms {
   font-family: 'Trebuchet MS', sans-serif;
 }
+.ql-size-8 { font-size: 8px; }
+.ql-size-9 { font-size: 9px; }
+.ql-size-10 { font-size: 10px; }
+.ql-size-11 { font-size: 11px; }
+.ql-size-12 { font-size: 12px; }
+.ql-size-14 { font-size: 14px; }
+.ql-size-18 { font-size: 18px; }
+.ql-size-24 { font-size: 24px; }
+.ql-size-30 { font-size: 30px; }
+.ql-size-36 { font-size: 36px; }
+.ql-size-48 { font-size: 48px; }
+.ql-size-60 { font-size: 60px; }
+.ql-size-72 { font-size: 72px; }
+.ql-size-96 { font-size: 96px; }
+
+.ql-editor p {
+  margin: 0; /* Reset default margin */
+}
+
+.ql-editor .ql-lineHeight-1 {
+  line-height: 1;
+}
+
+.ql-editor .ql-lineHeight-1\.5 {
+  line-height: 1.5;
+}
+
+.ql-editor .ql-lineHeight-2 {
+  line-height: 2;
+}
+
+.ql-editor .ql-lineHeight-2\.5 {
+  line-height: 2.5;
+}
+
+.ql-editor .ql-lineHeight-3 {
+  line-height: 3;
+}
+
+.ql-editor .ql-lineHeight-4 {
+  line-height: 4;
+}
+.ql-undo::before {
+  content: '⮪'; /* Undo Icon */
+}
+
+.ql-redo::before {
+  content: '⮫'; /* Redo Icon */
+}
