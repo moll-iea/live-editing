@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:wght@300;700&family=Montserrat:wght@400;700&family=Nunito:wght@300;700&family=Oswald:wght@300;700&family=Pacifico&family=Playfair+Display:wght@400;700&family=Roboto+Mono:wght@400;700&family=Roboto+Serif:wght@400;700&family=Spectral:wght@400;700&display=swap');
+
+
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -53,4 +57,73 @@ body {
     .container .ql-toolbar.ql-snow {
         display: none;
     } 
+}
+
+.ql-picker.ql-font .ql-picker-label::before,
+.ql-picker.ql-font .ql-picker-item::before {
+  content: attr(data-value) !important;
+  font-family: inherit;
+}
+
+.ql-font-arial {
+  font-family: Arial, sans-serif;
+}
+.ql-font-comic-sans {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+.ql-font-courier-new {
+  font-family: "Courier New", Courier, monospace;
+}
+.ql-font-georgia {
+  font-family: Georgia, serif;
+}
+.ql-font-impact {
+  font-family: Impact, sans-serif;
+}
+.ql-font-times-new-roman {
+  font-family: "Times New Roman", Times, serif;
+}
+.ql-font-verdana {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Google Fonts */
+.ql-font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+.ql-font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+.ql-font-lobster {
+  font-family: 'Lobster', cursive;
+}
+.ql-font-merriweather {
+  font-family: 'Merriweather', serif;
+}
+.ql-font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+.ql-font-nunito {
+  font-family: 'Nunito', sans-serif;
+}
+.ql-font-oswald {
+  font-family: 'Oswald', sans-serif;
+}
+.ql-font-pacifico {
+  font-family: 'Pacifico', cursive;
+}
+.ql-font-playfair-display {
+  font-family: 'Playfair Display', serif;
+}
+.ql-font-roboto-mono {
+  font-family: 'Roboto Mono', monospace;
+}
+.ql-font-roboto-serif {
+  font-family: 'Roboto Serif', serif;
+}
+.ql-font-spectral {
+  font-family: 'Spectral', serif;
+}
+.ql-font-trebuchet-ms {
+  font-family: 'Trebuchet MS', sans-serif;
 }

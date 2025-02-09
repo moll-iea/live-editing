@@ -13,26 +13,46 @@ mongoose.connect('mongodb+srv://cassleyannminaesquivel:AjwZfhlI9mibDfL3@basedrol
 });
 
 io.on('connection', (socket) => {
-    console.log('A user connected');
+    console.log('A user connected:', socket.id);
+
     socket.on('get-document', async (documentId) => {
         const document = await findOrCreateDocument(documentId);
         socket.join(documentId);
+
+        if (!document.data || typeof document.data !== 'object' || !document.data.ops) {
+            document.data = { ops: [] };
+        }
+
         socket.emit('load-document', document.data);
 
+        // 🔹 Move these listeners outside to avoid duplicate event handlers
         socket.on('send-changes', (delta) => {
-            socket.broadcast.to(documentId).emit('receive-changes', delta);
+            if (!delta || typeof delta !== 'object' || !delta.ops) {
+                console.error("Invalid delta received:", delta);
+                return;
+            }
+            console.log("Broadcasting changes:", delta);
+            socket.broadcast.to(documentId).emit('receive-changes', delta); // 🔥 Ensures real-time updates
         });
 
         socket.on('save-document', async (data) => {
-            await Document.findByIdAndUpdate(documentId, { data });
+            if (data && typeof data === 'object' && data.ops) {
+                await Document.findByIdAndUpdate(documentId, { data });
+            }
         });
+    });
+
+    socket.on('disconnect', () => {
+        console.log("User disconnected:", socket.id);
     });
 });
 
 async function findOrCreateDocument(id) {
-    if (id == null) return;
+    if (!id) return null;
 
-    const document = await Document.findById(id);
-    if (document) return document;
-    return await Document.create({ _id: id, data: { text: 'This is a new document.' } });  // Default value
+    let document = await Document.findById(id);
+    if (!document) {
+        document = await Document.create({ _id: id, data: { ops: [] } });
+    }
+    return document;
 }
